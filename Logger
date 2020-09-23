@@ -15,7 +15,10 @@
 //#define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321 [untested]
 //#define DHTTYPE DHT21   // DHT 21 (AM2301) [untested]
 
-DHT dht(DHTPIN, DHTTYPE);
+DHT dht(DHTPIN, DHTTYPE); 
+//If you get the error "exit status 1 'DHT' does not name a type " 
+//- download and include 'DHT Sensor Library 1.4.0' 
+
 
 
 #define LOG_INTERVAL  10000 // mills between entries (reduce to take more/faster data)
@@ -165,6 +168,7 @@ void loop(void)
 //log temperature and humidity
 
   float temperatureF = dht.readTemperature(true); //read temp in Fahrenheit
+  // float temperatureF = dht.readTemperature(); //read temp in celcius
   float humidity = dht.readHumidity(); //read humidity
 
   logfile.print(", ");    
